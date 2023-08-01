@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.header {
+  background-color: black;
+  font-family: "Staatliches", cursive;
+  color: #ffffff; }
+  .header .h1 {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px; }
+  @media (max-width: 400px) {
+    .header .header h1 {
+      font-size: medium; }
+    .header .navbar {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 15px; } }
+  .header .container-fluid {
+    background-color: black;
+    font-family: "Staatliches", cursive;
+    color: #ffffff; }
+  .header .dropdown-menu {
+    background-color: #f3df9d; }
+    .header .dropdown-menu .dropdown-item {
+      color: #a8840e; }
+      .header .dropdown-menu .dropdown-item:hover {
+        background-color: white;
+        color: black; }
+  .header .d-flex input[type="search"] {
+    border: 1px solid white;
+    color: white;
+    background-color: #000000; }
+  .header .d-flex button[type="submit"] {
+    border: 1px solid white;
+    color: white; }
+    .header .d-flex button[type="submit"]:hover {
+      background-color: white;
+      color: black; }
+
+.volver {
+  text-decoration: none;
+  width: auto;
+  font-size: 20px;
+  font-weight: lighter;
+  color: #978016;
+  padding: 10px;
+  text-align: left; }
+  .volver:hover {
+    color: #978016;
+    background-color: #e0cc94; }
+
+.centrar {
+  text-align: center; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.main {
+  font-family: "Staatliches", cursive;
+  color: #978016;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='92' viewBox='0 0 112 92'%3E%3Cg fill='%23000000' fill-opacity='0.83'%3E%3Cpath fill-rule='evenodd' d='M72 10H40L16 20H0v8h16l24-14h32l24 14h16v-8H96L72 10zm0-8H40L16 4H0v8h16l24-6h32l24 6h16V4H96L72 2zm0 84H40l-24-6H0v8h16l24 2h32l24-2h16v-8H96l-24 6zm0-8H40L16 64H0v8h16l24 10h32l24-10h16v-8H96L72 78zm0-12H40L16 56H0v4h16l24 14h32l24-14h16v-4H96L72 66zm0-16H40l-24-2H0v4h16l24 6h32l24-6h16v-4H96l-24 2zm0-16H40l-24 6H0v4h16l24-2h32l24 2h16v-4H96l-24-6zm0-16H40L16 32H0v4h16l24-10h32l24 10h16v-4H96L72 18z'/%3E%3C/g%3E%3C/svg%3E"); }
+  .main .main div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 0,5cm;
+    margin-bottom: 0,5cm; }
+  .main .h2cajaAru {
+    font-size: x-large;
+    font-style: oblique;
+    font-weight: lighter;
+    background-color: #ffffff;
+    color: #a79029;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    text-align: left; }
+  .main .h2cajaRomi {
+    font-size: x-large;
+    font-style: oblique;
+    font-weight: lighter;
+    background-color: #ffffff;
+    color: #a79029;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    text-align: right; }
+  .main .logos {
+    margin: 0 auto;
+    width: 200px;
+    border-radius: 50%; }
+  .main .tituloCatalogo {
+    margin: 10 auto;
+    padding: 10px;
+    font-family: "Pragati Narrow", sans-serif;
+    text-align: center;
+    font-size: x-large;
+    font-style: oblique;
+    font-weight: bold;
+    background-color: #b1a053;
+    color: #ffffff; }
+  .main .parrafo {
+    margin: 10 auto;
+    padding: 10px;
+    font-family: "Pragati Narrow", sans-serif;
+    font-size: large;
+    text-align: center;
+    line-height: 1;
+    background-color: #ffffff; }
+  .main .catalogo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2cm;
+    justify-items: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .main .catalogo div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+  .main .catalogo img {
+    width: 180px;
+    opacity: 0.8;
+    transition: opacity 0.3s; }
+  .main .catalogo img:hover {
+    opacity: 1;
+    transform: scale(1.1, 1.1); }
+  @media (max-width: 400px) {
+    .main .catalogo {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, 1fr); } }
+
+.turnoPiercing {
+  font-size: 30px;
+  background-color: #ffffff;
+  color: #a79029;
+  font-style: oblique;
+  font-weight: lighter;
+  text-align: center;
+  margin: 10px;
+  padding: 10px; }
+
+.turnoTatto {
+  font-size: 30px;
+  background-color: #ffffff;
+  color: #a79029;
+  font-style: oblique;
+  font-weight: lighter;
+  text-align: center;
+  margin: 10px;
+  padding: 10px; }
+
+.formulario {
+  font-family: "Staatliches", cursive;
+  color: #ffffff;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 5px;
+  width: 300px;
+  height: auto; }
+  @media (max-width: 400px) {
+    .formulario .formulario label,
+    .formulario .formulario input,
+    .formulario .formulario .form-text,
+    .formulario .formulario .form-check-label,
+    .formulario .formulario button {
+      font-size: 14px; } }
+  .formulario .enviar {
+    font-family: "Staatliches", cursive;
+    color: #ffffff;
+    background-color: #978016; }
+    .formulario .enviar .enviar:hover {
+      color: #978016;
+      background-color: #e0cc94; }
+
+.datosDeContacto {
+  font-family: "Staatliches", cursive;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  height: auto;
+  list-style-type: none;
+  background-color: #f3df9d;
+  color: #a8840e; }
+  .datosDeContacto:hover {
+    background-color: white;
+    color: black; }
+
+.mapa .imagenes {
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  width: 250px;
+  display: block; }
+
+.mapa .imagenes:hover {
+  opacity: 1;
+  transform: scale(1.5, 1.5); }
+
+.centrar {
+  text-align: center; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.footer {
+  background-color: black;
+  font-family: "Pragati Narrow", sans-serif;
+  margin: 0 auto;
+  padding: 20px; }
+  .footer .logoFooter {
+    font-family: "Pragati Narrow", sans-serif;
+    font-weight: lighter;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: medium;
+    color: #ffffff;
+    text-decoration: none; }
+    .footer .logoFooter:hover {
+      color: #978016;
+      background-color: #e0cc94; }
+  .footer .instagram {
+    font-family: "Pragati Narrow", sans-serif;
+    font-weight: lighter;
+    width: 30px;
+    text-align: center;
+    font-size: medium;
+    color: #ffffff;
+    text-decoration: none; }
+    .footer .instagram:hover {
+      color: #978016;
+      background-color: #e0cc94; }
+  .footer .h4 {
+    font-size: medium;
+    font-weight: lighter;
+    color: #ffffff;
+    text-align: center; }
+
+.centrar {
+  text-align: center; }

@@ -1,0 +1,184 @@
+$colorletra:#ffffff;
+$font-family1: 'Staatliches', cursive;
+$font-family2: 'Pragati Narrow', sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.main{
+    font-family: $font-family1; color:rgb(151, 128, 22);
+    background-color: $colorletra;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='112' height='92' viewBox='0 0 112 92'%3E%3Cg fill='%23000000' fill-opacity='0.83'%3E%3Cpath fill-rule='evenodd' d='M72 10H40L16 20H0v8h16l24-14h32l24 14h16v-8H96L72 10zm0-8H40L16 4H0v8h16l24-6h32l24 6h16V4H96L72 2zm0 84H40l-24-6H0v8h16l24 2h32l24-2h16v-8H96l-24 6zm0-8H40L16 64H0v8h16l24 10h32l24-10h16v-8H96L72 78zm0-12H40L16 56H0v4h16l24 14h32l24-14h16v-4H96L72 66zm0-16H40l-24-2H0v4h16l24 6h32l24-6h16v-4H96l-24 2zm0-16H40l-24 6H0v4h16l24-2h32l24 2h16v-4H96l-24-6zm0-16H40L16 32H0v4h16l24-10h32l24 10h16v-4H96L72 18z'/%3E%3C/g%3E%3C/svg%3E");
+    .main div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-top: 0,5cm;
+        margin-bottom: 0,5cm;
+      }
+      .h2cajaAru{
+        font-size:x-large;
+        font-style: oblique;
+        font-weight: lighter;
+        background-color: $colorletra;
+        color: rgb(167, 144, 41);
+        width: auto;
+        height: auto;
+        padding: 10px;
+        text-align: left;
+    } 
+    .h2cajaRomi{
+        font-size: x-large;
+        font-style: oblique;
+        font-weight: lighter;
+        background-color: $colorletra;
+        color: rgb(167, 144, 41);
+        width: auto;
+        height: auto;
+        padding: 10px; 
+        text-align: right;
+    }
+    .logos{
+        margin: 0 auto;
+        width: 200px;
+        border-radius: 50%;
+    }
+    .tituloCatalogo{
+        margin: 10 auto;
+        padding: 10px;
+        font-family: $font-family2;
+        text-align: center;
+        font-size:x-large;
+        font-style: oblique;
+        font-weight: bold;
+        background-color: rgb(177, 160, 83);
+        color: $colorletra;
+    
+    }
+    .parrafo{
+        margin: 10 auto;
+        padding: 10px;
+        font-family: $font-family2;
+        font-size: large;
+        text-align: center;
+        line-height: 1;
+        background-color:$colorletra;
+    }
+    .catalogo {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 2cm;
+        justify-items: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .catalogo div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .catalogo img {
+        width: 180px;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+      .catalogo img:hover {
+        opacity: 1;
+        transform: scale(1.10, 1.10)
+      }
+      
+      @media (max-width: 400px) {
+        .catalogo {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-rows: repeat(1, 1fr);
+        }
+      }
+
+}       
+    .turnoPiercing{
+        font-size: 30px;
+        background-color:$colorletra;
+        color: rgb(167, 144, 41);
+        font-style: oblique;
+        font-weight: lighter;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+    }
+    .turnoTatto{
+        font-size: 30px;
+        background-color:$colorletra;
+        color: rgb(167, 144, 41);
+        font-style: oblique;
+        font-weight: lighter;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+    }
+    .formulario{
+        font-family: $font-family1; color: $colorletra;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        margin:0 auto;
+        padding: 5px;
+        width: 300px;
+        height: auto;
+        @media (max-width: 400px){
+            .formulario label,
+            .formulario input,
+            .formulario .form-text,
+            .formulario .form-check-label,
+            .formulario button {
+            font-size: 14px;
+            }
+        }
+        .enviar{
+            font-family: $font-family1; color:$colorletra;
+            background-color: rgb(151, 128, 22);
+            .enviar:hover{
+                color: rgb(151, 128, 22);
+                background-color: rgb(224, 204, 148);
+            }
+        }
+    }
+    .datosDeContacto{
+        font-family: $font-family1; color:$colorletra;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        height: auto;
+        list-style-type:none;
+        background-color: rgb(243, 223, 157);
+        color: #a8840e; 
+            &:hover {
+                background-color: white;
+                color: black;
+              }
+    }
+    
+    .mapa{
+        .imagenes{
+        margin: 0 auto;
+        padding: 40px;
+        text-align: center;
+        width: 250px;
+        display: block;
+        }
+        .imagenes:hover {
+            opacity: 1;
+            transform: scale(1.50,1.50)
+          }
+    }
+.centrar{
+    text-align: center;
+}

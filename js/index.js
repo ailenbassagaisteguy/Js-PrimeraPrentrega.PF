@@ -1,48 +1,73 @@
-// Solicitar el nombre del usuario
-let nombre = prompt("Ingrese su nombre:");
+// Nombre y apellido del usuario
+let nombre = prompt("Ingrese su nombre y apellido:");
+// Opciones y precios de los tatuajes
+const tattooOptions = [
+  { tamaño: "Tattoo chico", precio: 1000 },
+  { tamaño: "Tattoo grande", precio: 3000 },
+];
 
-// Mostrar las opciones de tamaño
-let opcionesTatuaje = ["Tatuaje chico", "Tatuaje grande"];
-let opcionSeleccionadaTatuaje = prompt("Elija el tamaño de su tatuaje:\n1. Tatuaje chico\n2. Tatuaje grande");
+const colorOptions = [
+  { color: "Color", precio: 5000 },
+  { color: "Blanco y negro", precio: 4000 },
+];
 
-// Validar la opción seleccionada
-while (opcionSeleccionadaTatuaje !== "1" && opcionSeleccionadaTatuaje !== "2") {
-  opcionSeleccionadaTatuaje = prompt("Opción inválida. Elija una opción válida:\n1. Tatuaje chico\n2. Tatuaje grande");
+// Función
+function promptOption(message, options) {
+  let userInput;
+  do {
+    userInput = prompt(`${message}\n${options.map((option, index) => `${index + 1}. ${option}`).join("\n")}`);
+    userInput = parseInt(userInput);
+  } while (isNaN(userInput) || userInput < 1 || userInput > options.length);
+  return userInput - 1;
 }
 
-// Mostrar las opciones de color
-let opcionesColor = ["Color", "Blanco y negro"];
-let opcionSeleccionadaColor = prompt("Elija un tipo de color:\n1. Color\n2. Blanco y negro");
-
-// Validar la opción seleccionada de color
-while (opcionSeleccionadaColor !== "1" && opcionSeleccionadaColor !== "2") {
-  opcionSeleccionadaColor = prompt("Opción inválida. Elija un tipo de color válido:\n1. Color\n2. Blanco y negro");
+// Fecha del turno
+function promptTurno() {
+  const turno = prompt("Ingrese la fecha de su turno (dd/mm/aaaa):");
+  return turno;
+}
+// Hora del turno
+function promptHora() {
+  const hora = prompt("Ingrese la hora de su turno (hh:mm):");
+  return hora;
 }
 
-// Función para calcular el precio total del tatuaje
+// Precio total del tatuaje
 function calcularPrecio(opcionTatuaje, opcionColor) {
-  let precioBase = 0;
-
-  if (opcionTatuaje === "Tatuaje chico") {
-    precioBase = 1000;
-  } else if (opcionTatuaje === "Tatuaje grande") {
-    precioBase = 3000;
-  }
-
-  let precioColor = 0;
-
-  if (opcionColor === "Color") {
-    precioColor = 5000;
-  } else if (opcionColor === "Blanco y negro") {
-    precioColor = 4000;
-  }
-
-  let precioTotal = precioBase + precioColor;
+  const precioTattoo = tattooOptions[opcionTatuaje].precio;
+  const precioColor = colorOptions[opcionColor].precio;
+  const precioTotal = precioTattoo + precioColor;
   return precioTotal;
 }
+
+// Mostrar las opciones de tamaño y color
+const opcionSeleccionadaTattoo = promptOption("Elija el tamaño de su tattoo:", tattooOptions.map((option) => option.tamaño));
+const opcionSeleccionadaColor = promptOption("Elija el color de su tattoo:", colorOptions.map((option) => option.color));
+
+// Capturar la fecha del turno
+const fechaTurno = promptTurno();
+
+// Preguntar la hora del turno
+const horaTurno = promptHora();
+
 // Calcular el precio del tatuaje
-let precioTotal = calcularPrecio(opcionesTatuaje[opcionSeleccionadaTatuaje - 1], opcionesColor[opcionSeleccionadaColor - 1]);
+let precioTotal = calcularPrecio(opcionSeleccionadaTattoo, opcionSeleccionadaColor);
 
-// Precio total
-alert("Presupuesto de su tatuaje:\n\nNombre: " + nombre + "\nTamaño del tattoo: " + opcionesTatuaje[opcionSeleccionadaTatuaje - 1] + "\nColor del tattoo: " + opcionesColor[opcionSeleccionadaColor - 1] + "\n\nPrecio total: $" + precioTotal);
+// Presupuesto final
+alert(
+  "¡Gracias por tu compra! Este es el presupuesto de tu tattoo:\n\nNombre: " +
+    nombre +
+    "\nTamaño del tattoo: " +
+    tattooOptions[opcionSeleccionadaTattoo].tamaño +
+    "\nColor del tattoo: " +
+    colorOptions[opcionSeleccionadaColor].color +
+    "\nFecha del turno: " +
+    fechaTurno +
+    "\nHora del turno: " +
+    horaTurno +
+    "\n\nPrecio total: $" +
+    precioTotal
+);
 
+// Nombre y apellido del usuario
+let mail = prompt("Dejanos tu mail para contactarnos a la brevedad :) :");
