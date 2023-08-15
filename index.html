@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content= "Estudio de tatuajes y piercings en Cordoba Capital">
-    <meta name="keywords" content= "tatuaje, piercing, bodypiercing, meraki, arantxa bodypiercing, era tattoo, cordoba, puntillismo, blackwork,
-    geometría, titanio, perforaciones, inicio, estudio tattoo">
+    <meta name="description" content="Estudio de tatuajes y piercings en Cordoba Capital">
+    <meta name="keywords" content="tatuaje, piercing, bodypiercing, meraki, arantxa bodypiercing, era tattoo, cordoba, puntillismo, blackwork, geometría, titanio, perforaciones, inicio, estudio tattoo">
     <link rel="icon" href="./img/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/estilo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pragati+Narrow&family=Staatliches&display=swap" rel="stylesheet">
@@ -17,53 +15,57 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="h1">estudio _MERAKI_ tattoo y body piercing</h1>
-        <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Menu</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Pages
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="./index.html">Inicio</a></li>
-                          <li><a class="dropdown-item" href="./pages/nosotras.html">Nosotras</a></li>
-                          <li><a class="dropdown-item" href="./pages/catalogo.html">Catálogo</a></li>
-                          <li><a class="dropdown-item" href="./pages/turnos.html">Turnos</a></li>
-                          <li><a class="dropdown-item" href="./pages/contacto.html">Contacto</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                  </div>
-            </div>
-        </nav>
+        <h1 class="h1" id="estudio-title">estudio _MERAKI_ tattoo y body piercing</h1>
     </header>
     <main class="main">
-        <h2 class="h2cajaAru">Arantxa Body Piercing</h2>
-            <section class="logos">
-                 <img src="./img/logodearu.png" class="logos" alt="logo de aru">
-            </section>    
-        <h2 class="h2cajaRomi">Era Tattoo</h2>
-            <section class="logos">
-                 <img src="./img/logoderomi.png" class="logos" alt="logo de romi">    
-            </section>     
+        <h2 class="h2cajaAru" id="aru-title">Arantxa Body Piercing</h2>
+        
+        <h2 class="h2cajaRomi" id="romi-title">Era Tattoo</h2>
+    
+        <form id="formulario">
+            <label for="nombre">Nombre y apellido:</label>
+            <input type="text" id="nombre" required><br>
+        
+            <label for="opcion-tattoo">Tamaño del tattoo:</label>
+            <select id="opcion-tattoo">
+                <option value="0">Tattoo chico</option>
+                <option value="1">Tattoo mediano</option>
+                <option value="2">Tattoo grande</option>
+            </select><br>
+        
+            <label for="opcion-color">Color del tattoo:</label>
+            <select id="opcion-color">
+                <option value="0">Color</option>
+                <option value="1">Blanco y negro</option>
+                <option value="2">Color + Blanco y negro</option>
+            </select><br>
+        
+            <label for="opcion-cuerpo">Zona del cuerpo:</label>
+            <select id="opcion-cuerpo">
+                <option value="Brazo">Brazo</option>
+                <option value="Pierna">Pierna</option>
+                <option value="Espalda">Espalda</option>
+                <option value="Pecho">Pecho</option>
+                <option value="Otra zona">Otra zona</option>
+            </select><br>
+        
+            <label for="fecha-turno">Fecha del turno:</label>
+            <input type="text" id="fecha-turno" required><br>
+        
+            <label for="hora-turno">Hora del turno:</label>
+            <input type="text" id="hora-turno" required><br>
+            <button id="boton-confirmar">Confirmar Tattoo</button>
+        </form>
+        <div id="resultado-container"></div>
     </main>
+
     <footer class="footer">
-        <section class="centrar"> 
-                 <img src="./img/logodeinstagram.png" class="logoFooter" alt="logo de instagram">
-                 <img src="./img/logodetelefono.png" class="logoFooter" alt="logo de telefono">
-                 <img src="./img/logodeubicacion.png" class="logoFooter" alt="logo de ubicacion">
-                 <img src="./img/logodemercadopago.png" class="logoFooter" alt="logo de mercado pago">
-                 <img src="./img/logodetarjetas.png" class="logoFooter" alt="logo de tarjetas">
+        <section class="centrar" id="footer-logos">
+            <img src="./img/logodeinstagram.png" class="logoFooter" alt="logo de instagram">
+            <img src="./img/logodetelefono.png" class="logoFooter" alt="logo de telefono">
+            <img src="./img/logodeubicacion.png" class="logoFooter" alt="logo de ubicacion">
+            <img src="./img/logodemercadopago.png" class="logoFooter" alt="logo de mercado pago">
+            <img src="./img/logodetarjetas.png" class="logoFooter" alt="logo de tarjetas">
         </section>
         <h4 class="centrar">
             <a href="https://www.instagram.com/etel_romina_/" target="_blank" class="instagram">Instagram Tattoos</a>

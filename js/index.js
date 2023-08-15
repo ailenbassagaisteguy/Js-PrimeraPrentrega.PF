@@ -1,73 +1,139 @@
-// Nombre y apellido del usuario
-let nombre = prompt("Ingrese su nombre y apellido:");
-// Opciones y precios de los tatuajes
-const tattooOptions = [
-  { tamaño: "Tattoo chico", precio: 1000 },
-  { tamaño: "Tattoo grande", precio: 3000 },
-];
+document.addEventListener("DOMContentLoaded", function () {
+  const cliente = {
+    nombre: "",
+    opcionSeleccionadaTattoo: -1,
+    opcionSeleccionadaColor: -1,
+    zonaCuerpo: "",
+    fechaTurno: "",
+    horaTurno: "",
+    precioTotal: 0,
+  };
 
-const colorOptions = [
-  { color: "Color", precio: 5000 },
-  { color: "Blanco y negro", precio: 4000 },
-];
+  const tattooOptions = [
+    { tamaño: "Tattoo chico", precio: 1000 },
+    { tamaño: "Tattoo mediano", precio: 2000 },
+    { tamaño: "Tattoo grande", precio: 3000 },
+  ];
+  const colorOptions = [
+    { color: "Color", precio: 5000 },
+    { color: "Blanco y negro", precio: 4000 },
+    { color: "Color + Blanco y negro", precio: 7000 },
+  ];
 
-// Función
-function promptOption(message, options) {
-  let userInput;
-  do {
-    userInput = prompt(`${message}\n${options.map((option, index) => `${index + 1}. ${option}`).join("\n")}`);
-    userInput = parseInt(userInput);
-  } while (isNaN(userInput) || userInput < 1 || userInput > options.length);
-  return userInput - 1;
-}
+  const resultadoContainer = document.getElementById("resultado-container");
+  const botonConfirmar = document.getElementById("boton-confirmar");
+  const opcionCuerpo = document.getElementById("opcion-cuerpo");
 
-// Fecha del turno
-function promptTurno() {
-  const turno = prompt("Ingrese la fecha de su turno (dd/mm/aaaa):");
-  return turno;
-}
-// Hora del turno
-function promptHora() {
-  const hora = prompt("Ingrese la hora de su turno (hh:mm):");
-  return hora;
-}
+  botonConfirmar.addEventListener("click", function () {
+    cliente.nombre = document.getElementById("nombre").value;
+    cliente.opcionSeleccionadaTattoo = parseInt(document.getElementById("opcion-tattoo").value);
+    cliente.opcionSeleccionadaColor = parseInt(document.getElementById("opcion-color").value);
+    cliente.zonaCuerpo = opcionCuerpo.value;
+    cliente.fechaTurno = document.getElementById("fecha-turno").value;
+    cliente.horaTurno = document.getElementById("hora-turno").value;
+    calcularPrecio();
+    guardarEnStorage();
+    actualizarResultado();
+  });
 
-// Precio total del tatuaje
-function calcularPrecio(opcionTatuaje, opcionColor) {
-  const precioTattoo = tattooOptions[opcionTatuaje].precio;
-  const precioColor = colorOptions[opcionColor].precio;
-  const precioTotal = precioTattoo + precioColor;
-  return precioTotal;
-}
+  opcionCuerpo.addEventListener("change", function () {
+    const zonaCuerpo = opcionCuerpo.value;
+    if (zonaCuerpo === "Otra zona") {
+      const zonaPersonalizada = prompt("Escriba su opción para la zona del cuerpo:");
+      cliente.zonaCuerpo = zonaPersonalizada;
+    } else {
+      cliente.zonaCuerpo = zonaCuerpo;
+    }
+  });
 
-// Mostrar las opciones de tamaño y color
-const opcionSeleccionadaTattoo = promptOption("Elija el tamaño de su tattoo:", tattooOptions.map((option) => option.tamaño));
-const opcionSeleccionadaColor = promptOption("Elija el color de su tattoo:", colorOptions.map((option) => option.color));
+  function calcularPrecio() {
+    const precioTattoo = tattooOptions[cliente.opcionSeleccionadaTattoo].precio;
+    const precioColor = colorOptions[cliente.opcionSeleccionadaColor].precio;
+    cliente.precioTotal = precioTattoo + precioColor;
+  }
 
-// Capturar la fecha del turno
-const fechaTurno = promptTurno();
+  function guardarEnStorage() {
+    localStorage.setItem("cliente", JSON.stringify(cliente));
+  }
 
-// Preguntar la hora del turno
-const horaTurno = promptHora();
+  function recuperarDeStorage() {
+    const clienteJSON = localStorage.getItem("cliente");
+    if (clienteJSON) {
+      Object.assign(cliente, JSON.parse(clienteJSON));
+      actualizarResultado();
+    }
+  }
 
-// Calcular el precio del tatuaje
-let precioTotal = calcularPrecio(opcionSeleccionadaTattoo, opcionSeleccionadaColor);
+  function actualizarResultado() {
+    const precioTattoo = tattooOptions[cliente.opcionSeleccionadaTattoo].precio;
+    const precioColor = colorOptions[cliente.opcionSeleccionadaColor].precio;
+    cliente.precioTotal = precioTattoo + precioColor;
 
-// Presupuesto final
-alert(
-  "¡Gracias por tu compra! Este es el presupuesto de tu tattoo:\n\nNombre: " +
-    nombre +
-    "\nTamaño del tattoo: " +
-    tattooOptions[opcionSeleccionadaTattoo].tamaño +
-    "\nColor del tattoo: " +
-    colorOptions[opcionSeleccionadaColor].color +
-    "\nFecha del turno: " +
-    fechaTurno +
-    "\nHora del turno: " +
-    horaTurno +
-    "\n\nPrecio total: $" +
-    precioTotal
-);
+    resultadoContainer.innerHTML = `
+      <table>
+        <tr><td>Nombre:</td><td>${cliente.nombre}</td></tr>
+        <tr><td>Tamaño del tattoo:</td><td>${tattooOptions[cliente.opcionSeleccionadaTattoo].tamaño}</td></tr>
+        <tr><td>Color del tattoo:</td><td>${colorOptions[cliente.opcionSeleccionadaColor].color}</td></tr>
+        <tr><td>Zona del cuerpo:</td><td>${cliente.zonaCuerpo}</td></tr>
+        <tr><td>Fecha del turno:</td><td>${cliente.fechaTurno}</td></tr>
+        <tr><td>Hora del turno:</td><td>${cliente.horaTurno}</td></tr>
+        <tr><td>Precio total:</td><td>$${cliente.precioTotal}</td></tr>
+      </table>
+    `;
+    
+    const precioTotalCell = document.getElementById("precio-total");
+    precioTotalCell.textContent = `$${cliente.precioTotal}`;
+  }
 
-// Nombre y apellido del usuario
-let mail = prompt("Dejanos tu mail para contactarnos a la brevedad :) :");
+  const estudioTitle = document.getElementById("estudio-title");
+  estudioTitle.style.color = "white";
+  estudioTitle.style.fontSize = "20px";
+  estudioTitle.style.textAlign = "center";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const estudioTitle = document.getElementById("estudio-title");
+    estudioTitle.style.color = "white";
+    estudioTitle.style.fontSize = "20px";
+    estudioTitle.style.textAlign = "center";
+
+    const h2cajaAru = document.getElementById("aru-title");
+    h2cajaAru.style.color = "white";
+    h2cajaAru.style.fontSize = "20px";
+    h2cajaAru.style.textAlign = "center";
+
+    const h2cajaRomi = document.getElementById("romi-title");
+    h2cajaRomi.style.color = "white";
+    h2cajaRomi.style.fontSize = "20px";
+    h2cajaRomi.style.textAlign = "center";
+
+    const resultadoContainer = document.getElementById("resultado-container");
+    resultadoContainer.style.color = "white";
+    resultadoContainer.style.fontSize = "20px";
+    resultadoContainer.style.textAlign = "center";
+    resultadoContainer.style.margin = "0 auto";
+    resultadoContainer.style.padding = "10px";
+
+    const footerLogos = document.querySelectorAll(".logoFooter");
+    footerLogos.forEach(logo => {
+      logo.style.width = "30px";
+      logo.style.height = "30px";
+      logo.style.margin = "0 10px";
+    });
+
+    const instagramLinks = document.querySelectorAll(".instagram");
+    instagramLinks.forEach(link => {
+      link.style.color = "white";
+      link.style.textDecoration = "none";
+      link.style.margin = "0 10px";
+    });
+
+    const footerH4 = document.querySelectorAll(".h4");
+    footerH4.forEach(h4 => {
+      h4.style.color = "black";
+      h4.style.textAlign = "center";
+    });
+  });
+
+  recuperarDeStorage();
+});
+
