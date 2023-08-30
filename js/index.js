@@ -8,17 +8,35 @@ document.addEventListener("DOMContentLoaded", function () {
     horaTurno: "",
     precioTotal: 0,
   };
+  let tattooOptions;
+  let colorOptions;
 
-  const tattooOptions = [
-    { tamaño: "Tattoo chico", precio: 1000 },
-    { tamaño: "Tattoo mediano", precio: 2000 },
-    { tamaño: "Tattoo grande", precio: 3000 },
-  ];
-  const colorOptions = [
-    { color: "Color", precio: 5000 },
-    { color: "Blanco y negro", precio: 4000 },
-    { color: "Color + Blanco y negro", precio: 7000 },
-  ];
+ // Cargar datos desde el archivo JSON
+ fetch('data.json')
+ .then(response => response.json())
+ .then(data => {
+    tattooOptions = data.tattooOptions;
+    colorOptions = data.colorOptions;
+
+   // Actualizar las opciones de tatuajes y colores en el formulario
+   const opcionTattooSelect = document.getElementById("opcion-tattoo");
+   const opcionColorSelect = document.getElementById("opcion-color");
+
+   tattooOptions.forEach((option, index) => {
+     const optionElement = document.createElement("option");
+     optionElement.value = index.toString();
+     optionElement.textContent = option.tamaño;
+     opcionTattooSelect.appendChild(optionElement);
+   });
+
+   colorOptions.forEach((option, index) => {
+     const optionElement = document.createElement("option");
+     optionElement.value = index.toString();
+     optionElement.textContent = option.color;
+     opcionColorSelect.appendChild(optionElement);
+   });
+ })
+ .catch(error => console.error('Error al cargar los datos JSON:', error));
 
   const resultadoContainer = document.getElementById("resultado-container");
   const botonConfirmar = document.getElementById("boton-confirmar");
@@ -38,10 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   opcionCuerpo.addEventListener("change", function () {
     const zonaCuerpo = opcionCuerpo.value;
+    const zonaPersonalizadaInput = document.getElementById("zona-personalizada-input");
+  
     if (zonaCuerpo === "Otra zona") {
-      const zonaPersonalizada = prompt("Escriba su opción para la zona del cuerpo:");
-      cliente.zonaCuerpo = zonaPersonalizada;
+      // Mostrar el campo de entrada de texto
+      zonaPersonalizadaInput.style.display = "block";
     } else {
+      // Ocultar el campo de entrada de texto
+      zonaPersonalizadaInput.style.display = "none";
       cliente.zonaCuerpo = zonaCuerpo;
     }
   });
@@ -84,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const precioTotalCell = document.getElementById("precio-total");
     precioTotalCell.textContent = `$${cliente.precioTotal}`;
   }
-
+// Agregar estilos
   const estudioTitle = document.getElementById("estudio-title");
   estudioTitle.style.color = "white";
   estudioTitle.style.fontSize = "20px";
