@@ -1,0 +1,13 @@
+{
+    "tattooOptions": [
+      { "tamaño": "Tattoo chico", "precio": 1000 },
+      { "tamaño": "Tattoo mediano", "precio": 2000 },
+      { "tamaño": "Tattoo grande", "precio": 3000 }
+    ],
+    "colorOptions": [
+      { "color": "Color", "precio": 5000 },
+      { "color": "Blanco y negro", "precio": 4000 },
+      { "color": "Color + Blanco y negro", "precio": 7000 }
+    ]
+  }
+  
